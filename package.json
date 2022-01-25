@@ -1,5 +1,5 @@
 {
-  "name": "react-anywhere",
+  "name": "render-anywhere",
   "version": "1.0.0",
   "description": "render react component anywhere.",
   "main": "lib/index.js",
