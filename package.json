@@ -1,6 +1,6 @@
 {
   "name": "render-anywhere",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "render react component anywhere.",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -19,8 +19,8 @@
     "type": "git",
     "url": "https://github.com/zhiqiangx/render-anywhere.git"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "zhiqiangx",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

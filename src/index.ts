@@ -22,11 +22,17 @@ export const createContainer = (): HTMLDivElement => {
 };
 
 export type UnmountFunction = () => void;
+export type UpdateFunction = (nextNode: ReactElement) => void;
+
+export interface RenderAnywhereRet {
+  unmount: UnmountFunction;
+  update: UpdateFunction;
+}
 
 const renderAnywhere = (
   node: ReactElement,
   container?: HTMLElement
-): UnmountFunction => {
+): RenderAnywhereRet => {
   const containerDom = container || createContainer();
 
   const unmount: UnmountFunction = () => {
@@ -36,9 +42,14 @@ const renderAnywhere = (
     }
   };
 
-  ReactDOM.render(node, containerDom);
+  const update: UpdateFunction = (nextNode) => {
+    ReactDOM.unmountComponentAtNode(containerDom);
+    ReactDOM.createPortal(nextNode, containerDom);
+  }
 
-  return unmount;
+  ReactDOM.createPortal(node, containerDom);
+
+  return { unmount, update };
 };
 
 export default renderAnywhere;
