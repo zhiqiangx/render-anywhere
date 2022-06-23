@@ -44,10 +44,10 @@ const renderAnywhere = (
 
   const update: UpdateFunction = (nextNode) => {
     ReactDOM.unmountComponentAtNode(containerDom);
-    ReactDOM.createPortal(nextNode, containerDom);
+    ReactDOM.render(nextNode, containerDom);
   }
 
-  ReactDOM.createPortal(node, containerDom);
+  ReactDOM.render(node, containerDom);
 
   return { unmount, update };
 };
