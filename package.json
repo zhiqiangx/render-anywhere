@@ -1,6 +1,6 @@
 {
   "name": "render-anywhere",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "render react component anywhere.",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -22,8 +22,8 @@
   "author": "zhiqiangx",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "devDependencies": {
     "del-cli": "^3.0.0",
