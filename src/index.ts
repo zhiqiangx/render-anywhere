@@ -43,7 +43,6 @@ const renderAnywhere = (
   };
 
   const update: UpdateFunction = (nextNode) => {
-    ReactDOM.unmountComponentAtNode(containerDom);
     ReactDOM.render(nextNode, containerDom);
   }
 
