@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import ReactDOM from 'react-dom';
 
 const ANYWHERE_ROOT_ID = 'anywhere-root';
@@ -49,6 +49,32 @@ const renderAnywhere = (
   ReactDOM.render(node, containerDom);
 
   return { unmount, update };
+};
+
+interface RenderAnywhereRetRef {
+  current?: RenderAnywhereRet | undefined;
+}
+
+export const renderAnywhereWithPromise = (node: ReactElement, container?: HTMLElement) => {
+  const promise = new Promise((resolve) => {
+    const ref: RenderAnywhereRetRef = { current: undefined };
+
+    const close = (data) => {
+      if (!ref.current) return;
+      ref.current.unmount();
+      resolve(data);
+    };
+
+    const realNode = React.isValidElement(node)
+      ? React.cloneElement(node, {
+          ...node.props,
+          close,
+        })
+      : node;
+    
+    ref.current = renderAnywhere(realNode, container);
+    return { promise, close, update: ref.current.update };
+  });
 };
 
 export default renderAnywhere;

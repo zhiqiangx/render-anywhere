@@ -1,6 +1,6 @@
 {
   "name": "render-anywhere",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "render react component anywhere.",
   "main": "lib/index.js",
   "module": "lib/index.js",
